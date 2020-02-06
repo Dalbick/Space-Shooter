@@ -191,6 +191,26 @@ class EnemyShip(pygame.sprite.Sprite):  # класс корабля против
             if self.rect.x <= self.finish:
                 self.rect.x = self.finish
                 self.flying = False
+            if self.n == 2:  # задание координат выхлопов
+                self.exhaust.rect.x, self.exhaust.rect.y = \
+                    self.rect.x + self.rect.w - 30, self.rect.y + \
+                    (self.rect.h - self.exhaust.rect.h) / 2
+            elif self.n == 3:
+                self.exhaust.rect.x, self.exhaust.rect.y = \
+                    self.rect.x + self.rect.w - 24, self.rect.y + \
+                    (self.rect.h - self.exhaust.rect.h) / 2
+            elif self.n == 4:
+                self.exhaust.rect.x, self.exhaust.rect.y = \
+                    self.rect.x + self.rect.w - 16, self.rect.y + \
+                    (self.rect.h - self.exhaust.rect.h) / 2 + 2
+            elif self.n == 5:
+                self.exhaust.rect.x, self.exhaust.rect.y = \
+                    self.rect.x + self.rect.w - 10, self.rect.y + \
+                    (self.rect.h - self.exhaust.rect.h) / 2 + 9
+            elif self.n == 6:
+                self.exhaust.rect.x, self.exhaust.rect.y = \
+                    self.rect.x + self.rect.w - 24, self.rect.y + \
+                    (self.rect.h - self.exhaust.rect.h) / 2
         elif self.explosing:
             self.c2 = (self.c2 + 1) % 5
             if not self.c2:
